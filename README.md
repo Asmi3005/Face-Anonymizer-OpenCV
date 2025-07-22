@@ -1,50 +1,41 @@
-# 📸 Face Anonymizer with OpenCV and MediaPipe
+# 📸 Face Anonymizer Web App (OpenCV + MediaPipe + FastAPI + Streamlit)
 
-This project provides a real-time face anonymization tool using OpenCV and MediaPipe, with support for:
+A full-stack face anonymization tool supporting image, video, and **real-time webcam** processing using:
 
-- Blur  
-- Pixelate  
-- Blackout  
-- Emoji overlay  
-- Webcam, image, and video
-- Real-time keyboard toggles for anonymization type  
-
----
-
-##  Features
-
-| Feature      | Description                                       |
-|--------------|---------------------------------------------------|
-| `Blur`       | Smooth face area using Gaussian-style box blur    |
-| `Pixelate`   | Obscure face using mosaic block effect            |
-| `Blackout`   | Fully black out the detected face                 |
-| `Emoji`      | Overlay custom emoji PNG with transparency        |
-| `Live Toggle`| Switch modes in real-time with keys: `b`, `p`, `k`, `e`, `q` |
-| `Modes`      | Process webcam, image file, video file            |
-
----
-
-## 🛠️ Requirements
-
-- Python 3.7+
 - OpenCV
 - MediaPipe
-- NumPy
+- FastAPI backend
+- Streamlit frontend (or HTML+JS UI)
+- Real-time keyboard toggle for anonymization types
+
+---
+
+## ✅ Features
+
+| Feature         | Description                                                             |
+|------------------|-------------------------------------------------------------------------|
+| `Blur`           | Gaussian blur on detected faces                                         |
+| `Pixelate`       | Mosaic-style pixelation on faces                                        |
+| `Blackout`       | Black box over detected faces                                           |
+| `Emoji`          | Custom emoji overlay (transparent PNG supported)                       |
+| `Webcam`         | Live webcam feed with toggle features          |
+| `Image/Video`    | Upload media files and process instantly                                |
+| `Download`       | Save the anonymized result to local machine or server                  |
+
+---
+
+## ⚙️ Requirements
+
+- Python 3.7 – 3.10  
+- OpenCV  
+- MediaPipe  
+- NumPy  
+- FastAPI  
+- Jinja2 (for HTML frontend)  
+- Uvicorn (ASGI server)  
+- Streamlit (if using streamlit UI)
 
 Install dependencies:
 
 ```bash
-pip install opencv-python mediapipe numpy
-
-
-## Usage
-
-```bash
-# For image input
-python main.py --mode image --filePath pics_cv/standing.jpg
-
-# For video input
-python main.py --mode video --filePath pics_cv/talking.mp4
-
-# For webcam input
-python main.py --mode webcam
+pip install -r requirements.txt

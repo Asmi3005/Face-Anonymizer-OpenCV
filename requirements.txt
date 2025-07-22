@@ -1,2 +1,7 @@
-opencv-python==4.6.0.66
 mediapipe==0.10.21
+opencv-python
+protobuf
+numpy
+fastapi
+uvicorn
+python-multipart

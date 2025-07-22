@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Face Anonymizer</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Face Anonymizer</h1>
+
+        <div class="options">
+            <button onclick="showSection('upload')">Upload Image/Video</button>
+            <button onclick="showSection('webcam')">Use Webcam</button>
+        </div>
+
+        <!-- Upload Section -->
+        <div id="upload" class="section hidden">
+            <form id="uploadForm" enctype="multipart/form-data">
+                <input type="file" name="file" required><br>
+                <label>Anonymization Type:</label>
+                <select name="blur_type">
+                    <option value="blur">Blur</option>
+                    <option value="pixelate">Pixelate</option>
+                    <option value="blackout">Blackout</option>
+                    <option value="emoji">Emoji</option>
+                </select><br>
+                <input type="checkbox" name="save_output" checked> Save output to server<br>
+                <button type="submit">Upload & Process</button>
+            </form>
+        </div>
+
+        <!-- Webcam Section -->
+        <div id="webcam" class="section hidden">
+            <video id="webcam-stream" autoplay muted></video>
+            <canvas id="canvas" style="display:none;"></canvas>
+            <div>
+                <button onclick="toggleEffect()">Toggle Effect</button>
+                <button onclick="downloadFrame()">Download Frame</button>
+            </div>
+            <p>Current Effect: <span id="effect-name">Blur</span></p>
+        </div>
+
+        <!-- Result -->
+        <div id="result-section">
+            <h3>Processed Output</h3>
+            <!-- This container will hold the processed image or video -->
+            <div id="result-container"></div>
+            <a id="download-link" href="#" download style="display: none;">Download Result</a>
+        </div>
+    </div>
+
+    <script src="/static/js/scripts.js"></script>
+</body>
+</html>
